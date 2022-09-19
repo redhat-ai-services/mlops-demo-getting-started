@@ -76,6 +76,8 @@ Details on how to run the demo go here.
 
 #### cluster-bootstrap-gitops
 
+[rh-intelligent-application-practice/cluster-bootstrap-gitops](https://github.com/rh-intelligent-application-practice/cluster-bootstrap-gitops)
+
 This repo contains resources used to configure cluster level resources, primarily operators.  This repo is intended to be reusable for different demos and contain a core set of OpenShift features that would commonly be used for a Data Science environment.
 
 This repo bootstraps several key resources such as OpenShift-Gitops and Sealed Secrets.  Once the initial components are deployed several ArgoCD Application objects are created which are used to install and manage the install of several operators on the cluster.
@@ -84,6 +86,8 @@ One important feature of this repo is that it depends on a Sealed Secret master 
 
 #### mlops-demo-tenant-gitops
 
+[rh-intelligent-application-practice/mlops-demo-tenant-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-tenant-gitops)
+
 This repo is designed to be used alongside the cluster-bootstrap-gitops repo.  Like the cluster-bootstrap-gitops repo this repo is intended to deploy cluster level configurations but instead focuses on components that are specific to the MLOps Demo that are generally in the scope of a Cluster Admin.
 
 The primary goal of this repo is to create the tenant environment.  A tenant is generally a team of application developers that require several namespaces for deploying and managing an application.
@@ -91,6 +95,8 @@ The primary goal of this repo is to create the tenant environment.  A tenant is 
 This repo creates an oppinionated way for deploying and managing resources for a multi-tiered deployment of application components.
 
 #### mlops-demo-gitops
+
+[rh-intelligent-application-practice/mlops-demo-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-gitops)
 
 This repo contains resources that are deployed an managed by the application team in a gitops environment.  This repo is intended to deploy resources to the namespaces created by the tenant-gitops repo utilizing the argocd instance created by that repo.
 
@@ -101,5 +107,7 @@ Currently there are no application repos
 ### Other Repos
 
 ### helm-charts
+
+[rh-intelligent-application-practice/helm-charts](https://github.com/rh-intelligent-application-practice/helm-charts)
 
 The helm-charts repo is designed to create a space to build, maintain, and version custom helm charts that can be reused by multiple projects.  This repo will automatically build and publish charts using GitHub Pages.
