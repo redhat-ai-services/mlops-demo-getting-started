@@ -52,7 +52,7 @@ Additional ArgoCD Application objects will be created in OpenShift GitOps to be 
 
 ### Step Four: Bootstrap mlops-demo-tenant-gitops
 
-Clone the [mlops-demo-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-gitops) repo to your local machine.
+Clone the [mlops-demo-application-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-gitops) repo to your local machine.
 
 Like with the repos, you will need `oc` installed and you will need to be logged into the cluster on the command line.
 
@@ -94,9 +94,9 @@ The primary goal of this repo is to create the tenant environment.  A tenant is 
 
 This repo creates an oppinionated way for deploying and managing resources for a multi-tiered deployment of application components.
 
-#### mlops-demo-gitops
+#### mlops-demo-applicationgitops
 
-[rh-intelligent-application-practice/mlops-demo-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-gitops)
+[rh-intelligent-application-practice/mlops-demo-application-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-gitops)
 
 This repo contains resources that are deployed an managed by the application team in a gitops environment.  This repo is intended to deploy resources to the namespaces created by the tenant-gitops repo utilizing the argocd instance created by that repo.
 
