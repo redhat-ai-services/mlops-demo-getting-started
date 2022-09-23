@@ -12,9 +12,9 @@ Keep all of the default options, check the warning box, and select an appropriat
 
 The cluster will be created usually within 10-15 minutes and you should recieve emails with links to access the cluster along with credentials.
 
-### Step Two: Bootstrap cluster-bootstrap-gitops
+### Step Two: Bootstrap openshift-cluster-bootstrap-gitops
 
-Begin by cloning the [cluster-bootstrap-gitops](https://github.com/rh-intelligent-application-practice/cluster-bootstrap-gitops) repo to your local machine.
+Begin by cloning the [openshift-cluster-bootstrap-gitops](https://github.com/rh-intelligent-application-practice/cluster-bootstrap-gitops) repo to your local machine.
 
 You must have `oc` and `kustomize` installed on your local machine in order to run the bootstrap script.
 
@@ -40,7 +40,7 @@ OpenShift-Gitops will be installed to the cluster, and several components will b
 
 Clone the [mlops-demo-tenant-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-tenant-gitops) repo to your local machine.
 
-Like with the cluster-bootstrap-gitops process, you will need `oc` installed and you will need to be logged into the cluster on the command line.
+Like with the openshift-cluster-bootstrap-gitops process, you will need `oc` installed and you will need to be logged into the cluster on the command line.
 
 Run the `bootstrap.sh` script from the command line as you see below:
 
@@ -74,9 +74,9 @@ Details on how to run the demo go here.
 
 ### GitOps Repos
 
-#### cluster-bootstrap-gitops
+#### openshift-cluster-bootstrap-gitops
 
-[rh-intelligent-application-practice/cluster-bootstrap-gitops](https://github.com/rh-intelligent-application-practice/cluster-bootstrap-gitops)
+[rh-intelligent-application-practice/openshift-cluster-bootstrap-gitops](https://github.com/rh-intelligent-application-practice/cluster-bootstrap-gitops)
 
 This repo contains resources used to configure cluster level resources, primarily operators.  This repo is intended to be reusable for different demos and contain a core set of OpenShift features that would commonly be used for a Data Science environment.
 
@@ -88,7 +88,7 @@ One important feature of this repo is that it depends on a Sealed Secret master 
 
 [rh-intelligent-application-practice/mlops-demo-tenant-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-tenant-gitops)
 
-This repo is designed to be used alongside the cluster-bootstrap-gitops repo.  Like the cluster-bootstrap-gitops repo this repo is intended to deploy cluster level configurations but instead focuses on components that are specific to the MLOps Demo that are generally in the scope of a Cluster Admin.
+This repo is designed to be used alongside the openshift-cluster-bootstrap-gitops repo.  Like the openshift-cluster-bootstrap-gitops repo this repo is intended to deploy cluster level configurations but instead focuses on components that are specific to the MLOps Demo that are generally in the scope of a Cluster Admin.
 
 The primary goal of this repo is to create the tenant environment.  A tenant is generally a team of application developers that require several namespaces for deploying and managing an application.
 
