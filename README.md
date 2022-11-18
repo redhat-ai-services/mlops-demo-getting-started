@@ -64,7 +64,7 @@ Run the `bootstrap.sh` script from the command line as you see below:
 
 This script will create several ArgoCD Application objects in the tenant ArgoCD instance and not the cluster openshift-gitops instance.  Utilize the URL at the bottom of the script to follow the progress of the sync.
 
-Once the sync is complete the demo enivoronment is ready to go.
+Once the sync is complete the demo environment is ready to go.
 
 ## Running the Demo
 
@@ -76,7 +76,7 @@ Details on how to run the demo go here.
 
 #### openshift-cluster-bootstrap-gitops
 
-[rh-intelligent-application-practice/openshift-cluster-bootstrap-gitops](https://github.com/rh-intelligent-application-practice/cluster-bootstrap-gitops)
+[rh-intelligent-application-practice/openshift-cluster-bootstrap-gitops](https://github.com/rh-intelligent-application-practice/openshift-cluster-bootstrap-gitops)
 
 This repo contains resources used to configure cluster level resources, primarily operators.  This repo is intended to be reusable for different demos and contain a core set of OpenShift features that would commonly be used for a Data Science environment.
 
@@ -92,21 +92,31 @@ This repo is designed to be used alongside the openshift-cluster-bootstrap-gitop
 
 The primary goal of this repo is to create the tenant environment.  A tenant is generally a team of application developers that require several namespaces for deploying and managing an application.
 
-This repo creates an oppinionated way for deploying and managing resources for a multi-tiered deployment of application components.
+This repo creates an opinionated way for deploying and managing resources for a multi-tiered deployment of application components.
 
 #### mlops-demo-applicationgitops
 
-[rh-intelligent-application-practice/mlops-demo-application-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-gitops)
+[rh-intelligent-application-practice/mlops-demo-application-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-application-gitops)
 
 This repo contains resources that are deployed an managed by the application team in a gitops environment.  This repo is intended to deploy resources to the namespaces created by the tenant-gitops repo utilizing the argocd instance created by that repo.
 
 ### Application Repos
 
-Currently there are no application repos
+#### mlops-demo-iris-training-service
+
+[rh-intelligent-application-practice/mlops-demo-iris-training-service](https://github.com/rh-intelligent-application-practice/mlops-demo-iris-training-service)
+
+This repo contains source code for training the Iris machine learning model.
+
+#### mlops-demo-iris-inference-service
+
+[rh-intelligent-application-practice/mlops-demo-iris-inference-service](https://github.com/rh-intelligent-application-practice/mlops-demo-iris-inference-service)
+
+This repo contains source code for deploying the Iris machine learning model using a custom Seldon wrapper.
 
 ### Other Repos
 
-### helm-charts
+#### helm-charts
 
 [rh-intelligent-application-practice/helm-charts](https://github.com/rh-intelligent-application-practice/helm-charts)
 
