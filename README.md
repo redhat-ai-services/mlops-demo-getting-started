@@ -50,7 +50,7 @@ Run the `bootstrap.sh` script from the command line as you see below:
 
 Additional ArgoCD Application objects will be created in OpenShift GitOps to be synced.  You can follow the progress of the sync using the same URL.  This sync should complete in a few seconds.
 
-### Step Four: Bootstrap mlops-demo-tenant-gitops
+### Step Four: Bootstrap mlops-demo-application-gitops
 
 Clone the [mlops-demo-application-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-gitops) repo to your local machine.
 
