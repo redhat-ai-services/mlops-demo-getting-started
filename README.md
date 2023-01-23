@@ -6,11 +6,11 @@ This repo is intended to serve as a high level overview of the MLOps Demo resour
 
 ### Step One: Request a Cluster from RHPDS
 
-From rhpds.redhat.com navigate to `Services` > `Catalogs` and locate the option for `OpenShift 4.10 Workshop` under `Openshift Workshop`.  Choose the option to `Order`.
+From rhpds.redhat.com navigate to `Services` > `Catalogs` and locate the option for `OpenShift 4.11 Workshop` under `Openshift Workshop`.  Choose the option to `Order`.
 
 Keep all of the default options, check the warning box, and select an appropriate `Purpose`.
 
-The cluster will be created usually within 10-15 minutes and you should recieve emails with links to access the cluster along with credentials.
+The cluster will be created usually within 10-15 minutes and you should receive emails with links to access the cluster along with credentials.
 
 ### Step Two: Bootstrap openshift-cluster-bootstrap-gitops
 
