@@ -6,7 +6,7 @@ This repo is intended to serve as a high level overview of the MLOps Demo resour
 
 ### Step One: Request a Cluster from RHPDS
 
-Login to the Red Hat Demo Platform (https://demo.redhat.com), then navigate to `Catalog` > `Workshops`. In the filter option enter `OpenShift 4.11`, then select the `OpenShift 4.11 Workshop`. Finally, click the `Order` button to begin provisioning the new cluster.
+Login to the [Red Hat Demo Platform](https://demo.redhat.com), then navigate to `Catalog` > `Workshops`. In the filter option enter the text: `OpenShift 4.11`, then select the `OpenShift 4.11 Workshop` from the card list below. Finally, click the `Order` button to begin provisioning the new cluster.
 
 Enter required information for Activity and Purpose. Select a geo-region closest to you, such as `us-east-2`. Suggest leaving the other options at defaults unless you would like to specifically enable or disable them.
 
