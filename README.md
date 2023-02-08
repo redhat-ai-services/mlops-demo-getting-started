@@ -31,7 +31,7 @@ Run the `bootstrap.sh` script from the command line as you see below:
 When prompted to select a bootstrap folder, choose the following:
 
 ```sh
-1) bootstrap/overlays/rhpds-4.10/
+1) bootstrap/overlays/rhpds-4.11/
 ```
 
 OpenShift-Gitops will be installed to the cluster, and several components will be configured to sync in the openshift-gitops instance.  Utilize the URL at the bottom of the script to follow the progress of the sync.  Login using the cluster admin username/password via OpenShift OAuth.  This may take several minutes to complete the sync/install.
