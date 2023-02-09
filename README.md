@@ -73,6 +73,7 @@ Once the sync is complete the demo environment is ready to go.
 :dart: TODO: Locate and interact with Jupiter notebook model
 ### Producing data with Kafka
 :dart: TODO: Locate and interact with kafka data producer
+
 :dart: TODO: Define training and dev data sets
 ### Grafana dashboard
 :dart: TODO: Locate and interact with Grafana dashboard
@@ -80,6 +81,7 @@ Once the sync is complete the demo environment is ready to go.
 :dart: TODO: Locate and interact with the prediction service (Swagger?)
 ### Change and deploy a new model version
 :dart: TODO: generate A failed model that will not make it to a valid version
+
 :dart: TODO: Interact with the components to deploy a new valid model version
 ### Use the prediction service after model modification
 :dart: TODO: find a way to validate that we are using a new model version
