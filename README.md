@@ -68,23 +68,23 @@ Once the sync is complete the demo environment is ready to go.
 
 ## Running the Demo
 
-#TODO: Details on how to run the demo go here.#
+:dart: TODO: Details on how to run the demo go here.
 ### Jupiter notebook with model
-#TODO: Locate and interact with Jupiter notebook model#
+:dart: TODO: Locate and interact with Jupiter notebook model
 ### Producing data with Kafka
-#TODO: Locate and interact with kafka data producer#
-#TODO: Define training and dev data sets#
+:dart: TODO: Locate and interact with kafka data producer
+:dart: TODO: Define training and dev data sets
 ### Grafana dashboard
-#TODO: Locate and interact with Grafana dashboard#
+:dart: TODO: Locate and interact with Grafana dashboard
 ### Use the prediction service
-#TODO: Locate and interact with the prediction service (Swagger?)#
+:dart: TODO: Locate and interact with the prediction service (Swagger?)
 ### Change and deploy a new model version
-#TODO: generate A failed model that will not make it to a valid version
-#TODO: Interact with the components to deploy a new valid model version#
+:dart: TODO: generate A failed model that will not make it to a valid version
+:dart: TODO: Interact with the components to deploy a new valid model version
 ### Use the prediction service after model modification
-#TODO: find a way to validate that we are using a new model version#
+:dart: TODO: find a way to validate that we are using a new model version
 ### Grafana dashboard
-#TODO: Locate and interact with Grafana dashboard to validate predictions and behavior during model changes#
+:dart: TODO: Locate and interact with Grafana dashboard to validate predictions and behavior during model changes
 
 ## Repos
 
