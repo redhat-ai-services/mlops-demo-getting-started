@@ -46,42 +46,22 @@ Details on how to run the demo go here.
 
 ## Repos
 
-The MLOps demo is comprised by the following git repos:
+The MLOps demo consists of a number of git repositories:
 
 ### GitOps Repos
 
-- Cluster Bootstrap: [rh-intelligent-application-practice/openshift-cluster-bootstrap-gitops](https://github.com/rh-intelligent-application-practice/openshift-cluster-bootstrap-gitops)
+- Cluster Bootstrap: [openshift-cluster-bootstrap-gitops](https://github.com/rh-intelligent-application-practice/openshift-cluster-bootstrap-gitops) - bootstraps an OpenShift cluster with several operators and other components that are utilized for Machine Learning.
 
-- Tenant GitOps: [rh-intelligent-application-practice/mlops-demo-tenant-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-tenant-gitops)
+- Tenant GitOps: [mlops-demo-tenant-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-tenant-gitops) - project structure for a team of application developers that require several namespaces for deploying and managing an application.
 
-This repo is designed to be used alongside the openshift-cluster-bootstrap-gitops repo.  Like the openshift-cluster-bootstrap-gitops repo this repo is intended to deploy cluster level configurations but instead focuses on components that are specific to the MLOps Demo that are generally in the scope of a Cluster Admin.
-
-The primary goal of this repo is to create the tenant environment.  A tenant is generally a team of application developers that require several namespaces for deploying and managing an application.
-
-This repo creates an opinionated way for deploying and managing resources for a multi-tiered deployment of application components.
-
-- Application GitOps: [rh-intelligent-application-practice/mlops-demo-application-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-application-gitops)
-
-This repo contains resources that are deployed an managed by the application team in a gitops environment.  This repo is intended to deploy resources to the namespaces created by the tenant-gitops repo utilizing the argocd instance created by that repo.
+- Application GitOps: [mlops-demo-application-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-application-gitops) - resources that are deployed and managed by the application team.
 
 ### Application Repos
 
-#### mlops-demo-iris-training-service
+- Iris Training Service: [mlops-demo-iris-training-service](https://github.com/rh-intelligent-application-practice/mlops-demo-iris-training-service) - this repo contains source code for training the Iris machine learning model.
 
-[rh-intelligent-application-practice/mlops-demo-iris-training-service](https://github.com/rh-intelligent-application-practice/mlops-demo-iris-training-service)
-
-This repo contains source code for training the Iris machine learning model.
-
-#### mlops-demo-iris-inference-service
-
-[rh-intelligent-application-practice/mlops-demo-iris-inference-service](https://github.com/rh-intelligent-application-practice/mlops-demo-iris-inference-service)
-
-This repo contains source code for deploying the Iris machine learning model using a custom Seldon wrapper.
+- Iris Inference Service: [mlops-demo-iris-inference-service](https://github.com/rh-intelligent-application-practice/mlops-demo-iris-inference-service) - this repo contains source code for deploying the Iris machine learning model using a custom Seldon wrapper.
 
 ### Other Repos
 
-#### helm-charts
-
-[rh-intelligent-application-practice/helm-charts](https://github.com/rh-intelligent-application-practice/helm-charts)
-
-The helm-charts repo is designed to create a space to build, maintain, and version custom helm charts that can be reused by multiple projects.  This repo will automatically build and publish charts using GitHub Pages.
+- Helm Charts: [rh-intelligent-application-practice/helm-charts](https://github.com/rh-intelligent-application-practice/helm-charts) - this repo is designed to create a space to build, maintain, and version custom helm charts that can be reused by multiple projects. This repo will automatically build and publish charts using GitHub Pages.
