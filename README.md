@@ -159,7 +159,7 @@ The primary goal of this repo is to create the tenant environment.  A tenant is 
 
 This repo creates an opinionated way for deploying and managing resources for a multi-tiered deployment of application components.
 
-#### mlops-demo-applicationgitops
+#### mlops-demo-application-gitops
 
 [rh-intelligent-application-practice/mlops-demo-application-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-application-gitops)
 
