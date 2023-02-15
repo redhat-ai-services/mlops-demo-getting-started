@@ -105,18 +105,6 @@ Create an image from the model by running the Openshift pipeline generated for y
 
 ![Start Pipeline](images/synchronized-apps.png)
 
-If you prefer, you can tun the pipeline using the oc tool with the following command:
-
-  ```
-  oc start-build <pipeline name> -n <project name>
-  ```
-
-### Jupiter notebook with model
-:dart: TODO: Locate and interact with Jupiter notebook model
-### Producing data with Kafka
-:dart: TODO: Locate and interact with kafka data producer
-
-:dart: TODO: Define training and dev data sets
 ### Grafana dashboard
 :dart: TODO: Locate and interact with Grafana dashboard
 ### Use the prediction service
@@ -129,6 +117,7 @@ If you prefer, you can tun the pipeline using the oc tool with the following com
 :dart: TODO: find a way to validate that we are using a new model version
 ### Grafana dashboard
 :dart: TODO: Locate and interact with Grafana dashboard to validate predictions and behavior during model changes
+
 
 ## Repos
 
