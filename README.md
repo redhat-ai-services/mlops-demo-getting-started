@@ -75,38 +75,54 @@ Create an image from the model by running the Openshift pipeline generated for y
   
 2. From the projects, select `mlops-demo-pipelines`
 
-  ![Select Project](images/select-pipelines-project.png)
+  ![Select Project](images/select-pipelines-project.png "Select Project")
   
 3. From the left menu, select the pipelines option.
 
-  ![Select Pipelines](images/select_pipelines.png)
+  ![Select Pipelines](images/select_pipelines.png "Select Pipelines")
   
 4. Select the `iris-inference-service` pipeline
 
 5. From the options in the top right corner, select the Start option.
 
-  ![Start Pipeline](images/start_pipeline.png)
+  ![Start Pipeline](images/start_pipeline.png "Start pipeline")
   
 6. In the *start pipeline* modal, you will leave most of the parameters as __default__, except for the **Workspaces**
 
   6.1. Set the `sourcecode-workspace` and `gitops-workspace` as `VolumeClaimTemplate`
   
-  ![Start Pipeline](images/start-pipeline-vct.png)
+  ![Start Pipeline Modal](images/start-pipeline-vct.png "Start Pipeline modal")
   
   6.2. In the `Show VolumeClaimTemplate options` for `sourcecode-workspace`, set the size to 5 GB
   
-  ![Start Pipeline](images/start-pipeline-vct-size.png)
+  ![Workspace configuration](images/start-pipeline-vct-size.png "Workspace configuration")
   
 7. Click the Start button, and monitor the pipeline to its completion
 
-![Start Pipeline](images/completed_pipeline.png)
+![Completed Pipeline](images/completed_pipeline.png "Pipeline completed: success")
 
 8. Login to ArgoCD, and validate that all applications are synchronized.
 
-![Start Pipeline](images/synchronized-apps.png)
+![Sync application](images/synchronized-apps.png "Synchronized applications")
 
 ### Grafana dashboard
-:dart: TODO: Locate and interact with Grafana dashboard
+
+1. Navigate to the grafana route: https://grafana-route-mlops-demo-dev.apps.cluster-**guid**.**guid**.**sandbox**.opentlc.com
+
+2. use the following credentials to login as Grafana administrator: `grafana_admin:r3dh4t1!`
+
+3. From the left panel, select `Dashboards > manage`
+
+![Grafana Dashboards Manage](images/grafana-dashboards-manage.png "Grafana Dashboards Manage")
+
+4. In the dashboards folders, locate and select the `mlops-demo-dev > Prediction Analytics` dashboard
+
+![Prediction Analytics Dashboard](images/mlops-dev-dashboard-folder.png "Predition Analytics Dashboard")
+
+5. Observe the available dashboards.
+
+![Seldon Core Dashboard](images/seldon-core-dashboard.png "Seldon core dashboard")
+
 ### Use the prediction service
 :dart: TODO: Locate and interact with the prediction service (Swagger?)
 ### Change and deploy a new model version
