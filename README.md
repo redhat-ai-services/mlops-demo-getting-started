@@ -67,8 +67,31 @@ This script will create several ArgoCD Application objects in the tenant ArgoCD 
 Once the sync is complete the demo environment is ready to go.
 
 ## Running the Demo
+### Deploy the inference service
+At this point our model is trained and ready to be deployed. :dart: __TODO: Where is the model?__
+Create an image from the model by running the Openshift pipeline generated for you:
+. Login to the openshift console https://console-openshift-console.apps.cluster-<guid>.<guid>.<sandbox>.opentlc.com
+. From the projects, select `mlops-demo-pipelines`
+  ![Select Project](images/select-pipelines-project.png)
+. From the left menu, select the pipelines option.
+  ![Select Pipelines](images/select-pipelines.png)
+. Select the `iris-inference-service` pipeline
+. From the options in the top right corner, select the Start option.
+  ![Start Pipeline](images/start-pipeline.png)
+. In the *start pipeline* modal, you will leave most of the parameters as __default__, except for the **Workspaces**
+  . Set the `sourcecode-workspace` and `gitops-workspace` as `VolumeClaimTemplate`
+  ![Start Pipeline](images/start-pipeline-vct.png)
+  . In the `Show VolumeClaimTemplate options` for `sourcecode-workspace`, set the size to 5 GB
+  ![Start Pipeline](images/start-pipeline-vct-size.png)
+. Click the Start button, and monitor the pipeline to its completion
+. Login to ArgoCD, and validate that the application <application name> is synchronized
 
-:dart: TODO: Details on how to run the demo go here.
+If you prefer, you can tun the pipeline using the oc tool with the following command:
+
+  ```
+  oc start-build <pipeline name> -n <project name>
+  ```
+
 ### Jupiter notebook with model
 :dart: TODO: Locate and interact with Jupiter notebook model
 ### Producing data with Kafka
