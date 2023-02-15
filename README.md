@@ -75,7 +75,7 @@ Create an image from the model by running the Openshift pipeline generated for y
   
 2. From the projects, select `mlops-demo-pipelines`
 
-  ![Select Project](images/select_pipelines-project.png)
+  ![Select Project](images/select-pipelines-project.png)
   
 3. From the left menu, select the pipelines option.
 
@@ -85,7 +85,7 @@ Create an image from the model by running the Openshift pipeline generated for y
 
 5. From the options in the top right corner, select the Start option.
 
-  ![Start Pipeline](images/start-pipeline.png)
+  ![Start Pipeline](images/start_pipeline.png)
   
 6. In the *start pipeline* modal, you will leave most of the parameters as __default__, except for the **Workspaces**
 
@@ -99,7 +99,11 @@ Create an image from the model by running the Openshift pipeline generated for y
   
 7. Click the Start button, and monitor the pipeline to its completion
 
-8. Login to ArgoCD, and validate that the application <application name> is synchronized
+![Start Pipeline](images/completed_pipeline.png)
+
+8. Login to ArgoCD, and validate that all applications are synchronized.
+
+![Start Pipeline](images/synchronized-apps.png)
 
 If you prefer, you can tun the pipeline using the oc tool with the following command:
 
