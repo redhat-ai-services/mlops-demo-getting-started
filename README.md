@@ -68,7 +68,18 @@ Once the sync is complete the demo environment is ready to go.
 
 ## Running the Demo
 ### Deploy the inference service
-At this point our model is trained and ready to be deployed. :dart: __TODO: Where is the model?__
+At this point our model is trained and ready to be deployed.
+You can access the model training notebook by cloning the following project:
+
+ [rh-intelligent-application-practice/mlops-demo-iris-inference-service](https://github.com/rh-intelligent-application-practice/mlops-demo-iris-inference-service/tree/main/models)
+
+In the following steps, we will: 
+
+- create an image with the trained model:
+[iris-model.pkl](https://github.com/rh-intelligent-application-practice/mlops-demo-iris-training-service)
+
+- Deploy the image to Dev, Test, and Production environments
+
 Create an image from the model by running the Openshift pipeline generated for you:
 
 1. Login to the openshift console https://console-openshift-console.apps.cluster-**guid**.**guid**.**sandbox**.opentlc.com
@@ -124,15 +135,33 @@ Create an image from the model by running the Openshift pipeline generated for y
 ![Seldon Core Dashboard](images/seldon-core-dashboard.png "Seldon core dashboard")
 
 ### Use the prediction service
-:dart: TODO: Locate and interact with the prediction service (Swagger?)
-### Change and deploy a new model version
-:dart: TODO: generate A failed model that will not make it to a valid version
 
-:dart: TODO: Interact with the components to deploy a new valid model version
-### Use the prediction service after model modification
-:dart: TODO: find a way to validate that we are using a new model version
-### Grafana dashboard
-:dart: TODO: Locate and interact with Grafana dashboard to validate predictions and behavior during model changes
+1. Open the following Jupyter notebook with your favorite IDE: [mlops-demo-iris-inference-service/notebooks/seldon-request.ipynb](https://github.com/rh-intelligent-application-practice/mlops-demo-iris-inference-service/blob/main/notebooks/seldon-request.ipynb)
+
+```
+template for URL:
+https://iris-inference-service-mlops-demo-dev.apps.cluster-GUID.GUID.SANDBOX.opentlc.com
+```
+
+2. Modify the 4th cell to provide your deployed cluster URL
+
+![Set Service URL](images/cell-url.png "Set Service URL")
+
+3. Run all the cells to send different requests to the inference service.
+
+### Kafka data producer
+
+Explore the kafka data producer:
+
+1. Login to the Openshift web console.
+2. Using the topology diagram for the `mlops-demo-dev` namespace, locate the `iris-message-generator` component
+
+![Message generator topology](images/message-generator.png "Message Generator Topology")
+
+
+3. Observe the `iris-message-generator` pod logs, and observe how every 10 seconds, a new record is generated.
+
+![Message log](images/message-log.png "Message log")
 
 
 ## Repos
