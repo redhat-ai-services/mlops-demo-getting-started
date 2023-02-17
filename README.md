@@ -39,8 +39,102 @@ This script will create several ArgoCD Application objects in the tenant ArgoCD 
 Once the sync is complete the demo environment is ready to go.
 
 ## Running the Demo
+### Deploy the inference service
+At this point our model is trained and ready to be deployed.
+You can access the model training notebook by cloning the following project:
 
-Details on how to run the demo go here.
+ [rh-intelligent-application-practice/mlops-demo-iris-inference-service](https://github.com/rh-intelligent-application-practice/mlops-demo-iris-inference-service/tree/main/models)
+
+In the following steps, we will: 
+
+- create an image with the trained model:
+[iris-model.pkl](https://github.com/rh-intelligent-application-practice/mlops-demo-iris-training-service)
+
+- Deploy the image to Dev, Test, and Production environments
+
+Create an image from the model by running the Openshift pipeline generated for you:
+
+1. Login to the openshift console https://console-openshift-console.apps.cluster-**guid**.**guid**.**sandbox**.opentlc.com
+  
+2. From the projects, select `mlops-demo-pipelines`
+
+  ![Select Project](images/select-pipelines-project.png "Select Project")
+  
+3. From the left menu, select the pipelines option.
+
+  ![Select Pipelines](images/select_pipelines.png "Select Pipelines")
+  
+4. Select the `iris-inference-service` pipeline
+
+5. From the options in the top right corner, select the Start option.
+
+  ![Start Pipeline](images/start_pipeline.png "Start pipeline")
+  
+6. In the *start pipeline* modal, you will leave most of the parameters as __default__, except for the **Workspaces**
+
+  6.1. Set the `sourcecode-workspace` and `gitops-workspace` as `VolumeClaimTemplate`
+  
+  ![Start Pipeline Modal](images/start-pipeline-vct.png "Start Pipeline modal")
+  
+  6.2. In the `Show VolumeClaimTemplate options` for `sourcecode-workspace`, set the size to 5 GB
+  
+  ![Workspace configuration](images/start-pipeline-vct-size.png "Workspace configuration")
+  
+7. Click the Start button, and monitor the pipeline to its completion
+
+![Completed Pipeline](images/completed_pipeline.png "Pipeline completed: success")
+
+8. Login to ArgoCD, and validate that all applications are synchronized.
+
+![Sync application](images/synchronized-apps.png "Synchronized applications")
+
+### Grafana dashboard
+
+1. Navigate to the grafana route: https://grafana-route-mlops-demo-dev.apps.cluster-**guid**.**guid**.**sandbox**.opentlc.com
+
+2. use the following credentials to login as Grafana administrator: `grafana_admin:r3dh4t1!`
+
+3. From the left panel, select `Dashboards > manage`
+
+![Grafana Dashboards Manage](images/grafana-dashboards-manage.png "Grafana Dashboards Manage")
+
+4. In the dashboards folders, locate and select the `mlops-demo-dev > Prediction Analytics` dashboard
+
+![Prediction Analytics Dashboard](images/mlops-dev-dashboard-folder.png "Predition Analytics Dashboard")
+
+5. Observe the available dashboards.
+
+![Seldon Core Dashboard](images/seldon-core-dashboard.png "Seldon core dashboard")
+
+### Use the prediction service
+
+1. Open the following Jupyter notebook with your favorite IDE: [mlops-demo-iris-inference-service/notebooks/seldon-request.ipynb](https://github.com/rh-intelligent-application-practice/mlops-demo-iris-inference-service/blob/main/notebooks/seldon-request.ipynb)
+
+```
+template for URL:
+https://iris-inference-service-mlops-demo-dev.apps.cluster-GUID.GUID.SANDBOX.opentlc.com
+```
+
+2. Modify the 4th cell to provide your deployed cluster URL
+
+![Set Service URL](images/cell-url.png "Set Service URL")
+
+3. Run all the cells to send different requests to the inference service.
+
+### Kafka data producer
+
+Explore the kafka data producer:
+
+1. Login to the Openshift web console.
+2. Using the topology diagram for the `mlops-demo-dev` namespace, locate the `iris-message-generator` component
+
+![Message generator topology](images/message-generator.png "Message Generator Topology")
+
+
+3. Observe the `iris-message-generator` pod logs, and observe how every 10 seconds, a new record is generated.
+
+![Message log](images/message-log.png "Message log")
+
 
 > **_NOTE:_**  Under construction, see https://app.smartsheet.com/sheets/R52PR9x25fGrjrXwMpCGGmqRRw64vCHgvwchR2p1?rowId=5098253884974980
 
