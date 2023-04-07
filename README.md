@@ -18,32 +18,90 @@ The cluster will be created usually within an hour or so, and you should receive
 
 ### Step Two: Bootstrap the MLOps OpenShift Cluster GitOps Repo
 
-Clone and follow the instructions found in the [openshift-cluster-bootstrap-gitops](https://github.com/rh-intelligent-application-practice/cluster-bootstrap-gitops) repo.
+Clone the [openshift-cluster-bootstrap-gitops](https://github.com/rh-intelligent-application-practice/cluster-bootstrap-gitops) repository.
 
-This bootstrap script will create the OpenShift-Gitops namespace, and several components will be configured to sync in the openshift-gitops instance. 
+Before running the script to start setting up the cluster, you will need a Sealed Secret to unlock existing sealed secrets needed for this demo.
 
-This may take several minutes to complete the sync/install, you can utilize the ArgoCD URL at the bottom of the script to monitor the progress of the sync.
+The master sealed secret secret will be stored in the following location:
+
+```
+bootstrap/base/sealed-secrets-secret.yaml
+```
+
+This file cannot be checked into git.  If you do not have this file, you will need to obtain it from a member of the Red Hat Data Science and Edge Practice.
+
+Login to the cluster with the `oc` command line utility and execute the bootstrap script to begin the installation process:
+
+```sh
+./bootstrap.sh
+```
+
+> **Warning**
+>
+> If you receive a prompt asking you if you would like create a new Master Sealed Secret key STOP.  You will need the correct Master Sealed Secret key mentioned previously for this demo.
+
+When prompted to select a bootstrap folder, choose the overlay that matches your cluster version, for example: `bootstrap/overlays/rhpds-4.11/`.
+
+The `bootstrap.sh` script will now install the OpenShift GitOps Operator, create an ArgoCD instance once the operator is deployed in the `openshift-gitops` namespace, then bootstrap a set of ArgoCD applications to configure the cluster.
+
+Once the script completes, verify that you can access the ArgoCD UI using the URL output by the last line of the script execution. This URL should present an ArgoCD login page, showing that it was successfully deployed.
+
+Alternatively you can also obtain the ArgoCD login URL from the ArgoCD route:
+
+```sh
+oc get routes openshift-gitops-server -n openshift-gitops
+```
+
+Use the OpenShift Login option and sign in with your OpenShift credentials.
+
+The cluster may take 10-15 minutes to finish installing and updating.
+
+> **Note**
+>
+> Sometimes the `openshift-data-foundation-operator` will go to a sync failed state.  This generally doesn't cause any issues that impact the demo, but can be easily resolved by triggering a Sync on the application again.
+
 
 ### Step Three: Bootstrap the MLOps Demo Tenant GitOps Repo
 
-Clone and follow the instructions found in the [mlops-demo-tenant-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-tenant-gitops) repository.
+Clone the [mlops-demo-tenant-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-tenant-gitops) repository and run the bootstrap script.
+
+```sh
+./bootstrap.sh
+```
 
 Additional ArgoCD Application objects will be created in OpenShift GitOps to be synced. You can follow the progress of the sync using the same URL as the previous step. This sync should complete in a few seconds.
 
+This repository will setup our application teams (tenant) environment, including several namespaces, a namespace scoped instance of ArgoCD, and all of the RBAC settings needed for the project.
+
 ### Step Four: Bootstrap the MLOps Demo Application GitOps Repo
 
-Clone and follow the instructions found in the [mlops-demo-application-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-gitops) repository.
+Clone the [mlops-demo-application-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-gitops) repository and run the bootstrap script.
+
+```sh
+./bootstrap.sh
+```
 
 This script will create several ArgoCD Application objects in the tenant ArgoCD instance and not the cluster openshift-gitops instance. Utilize the ArgoCD URL at the bottom of the script to follow the progress of the sync.
 
 Once the sync is complete the demo environment is ready to go.
 
+> **Note**
+>
+> Currently there is a hardcoded URL in the following pipeline object for the Kubeflow UI that is used in the iris-training pipeline:
+>
+> `components/tekton/pipelines/iris-training/base/iris-training-pipeline.yaml`
+>
+> You can update the URL at this point in time and push the update to the git repo.  If you do not, when triggering the pipeline during the demo, you will need to manually provide the correct URL at that point in time.  
+>
+> In future updates this URL will be replaced with the service URL for the Kubeflow UI.  Currently the Kubeflow UI utilizes a self signed cert that is not trusted by the Tekton Pipeline.
+
 ## Running the Demo
+
 ### Deploy the inference service
 At this point our model is trained and ready to be deployed.
 You can access the model training notebook by cloning the following project:
 
- [rh-intelligent-application-practice/mlops-demo-iris-inference-service](https://github.com/rh-intelligent-application-practice/mlops-demo-iris-inference-service/tree/main/models)
+[rh-intelligent-application-practice/mlops-demo-iris-inference-service](https://github.com/rh-intelligent-application-practice/mlops-demo-iris-inference-service/tree/main/models)
 
 In the following steps, we will: 
 
