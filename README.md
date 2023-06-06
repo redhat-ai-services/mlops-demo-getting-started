@@ -18,7 +18,7 @@ The cluster will be created usually within an hour or so, and you should receive
 
 ### Step Two: Bootstrap the MLOps OpenShift Cluster GitOps Repo
 
-Clone the [openshift-cluster-bootstrap-gitops](https://github.com/rh-intelligent-application-practice/cluster-bootstrap-gitops) repository.
+Clone the [openshift-cluster-bootstrap-gitops](https://github.com/rh-datascience-and-edge-practice/cluster-bootstrap-gitops) repository.
 
 Before running the script to start setting up the cluster, you will need a Sealed Secret to unlock existing sealed secrets needed for this demo.
 
@@ -63,7 +63,7 @@ The cluster may take 10-15 minutes to finish installing and updating.
 
 ### Step Three: Bootstrap the MLOps Demo Tenant GitOps Repo
 
-Clone the [mlops-demo-tenant-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-tenant-gitops) repository and run the bootstrap script.
+Clone the [mlops-demo-tenant-gitops](https://github.com/rh-datascience-and-edge-practice/mlops-demo-tenant-gitops) repository and run the bootstrap script.
 
 ```sh
 ./bootstrap.sh
@@ -75,7 +75,7 @@ This repository will setup our application teams (tenant) environment, including
 
 ### Step Four: Bootstrap the MLOps Demo Application GitOps Repo
 
-Clone the [mlops-demo-application-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-gitops) repository and run the bootstrap script.
+Clone the [mlops-demo-application-gitops](https://github.com/rh-datascience-and-edge-practice/mlops-demo-gitops) repository and run the bootstrap script.
 
 ```sh
 ./bootstrap.sh
@@ -101,12 +101,12 @@ Once the sync is complete the demo environment is ready to go.
 At this point our model is trained and ready to be deployed.
 You can access the model training notebook by cloning the following project:
 
-[rh-intelligent-application-practice/mlops-demo-iris-inference-service](https://github.com/rh-intelligent-application-practice/mlops-demo-iris-inference-service/tree/main/models)
+[rh-datascience-and-edge-practice/mlops-demo-iris-inference-service](https://github.com/rh-datascience-and-edge-practice/mlops-demo-iris-inference-service/tree/main/models)
 
 In the following steps, we will: 
 
 - create an image with the trained model:
-[iris-model.pkl](https://github.com/rh-intelligent-application-practice/mlops-demo-iris-training-service)
+[iris-model.pkl](https://github.com/rh-datascience-and-edge-practice/mlops-demo-iris-training-service)
 
 - Deploy the image to Dev, Test, and Production environments
 
@@ -166,7 +166,7 @@ Create an image from the model by running the Openshift pipeline generated for y
 
 ### Use the prediction service
 
-1. Open the following Jupyter notebook with your favorite IDE: [mlops-demo-iris-inference-service/notebooks/seldon-request.ipynb](https://github.com/rh-intelligent-application-practice/mlops-demo-iris-inference-service/blob/main/notebooks/seldon-request.ipynb)
+1. Open the following Jupyter notebook with your favorite IDE: [mlops-demo-iris-inference-service/notebooks/seldon-request.ipynb](https://github.com/rh-datascience-and-edge-practice/mlops-demo-iris-inference-service/blob/main/notebooks/seldon-request.ipynb)
 
 ```
 template for URL:
@@ -202,18 +202,18 @@ The MLOps demo consists of a number of git repositories:
 
 ### GitOps Repos
 
-- Cluster Bootstrap: [openshift-cluster-bootstrap-gitops](https://github.com/rh-intelligent-application-practice/openshift-cluster-bootstrap-gitops) - bootstraps an OpenShift cluster with several operators and other components that are utilized for Machine Learning.
+- Cluster Bootstrap: [openshift-cluster-bootstrap-gitops](https://github.com/rh-datascience-and-edge-practice/openshift-cluster-bootstrap-gitops) - bootstraps an OpenShift cluster with several operators and other components that are utilized for Machine Learning.
 
-- Tenant GitOps: [mlops-demo-tenant-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-tenant-gitops) - project structure for a team of application developers that require several namespaces for deploying and managing an application.
+- Tenant GitOps: [mlops-demo-tenant-gitops](https://github.com/rh-datascience-and-edge-practice/mlops-demo-tenant-gitops) - project structure for a team of application developers that require several namespaces for deploying and managing an application.
 
-- Application GitOps: [mlops-demo-application-gitops](https://github.com/rh-intelligent-application-practice/mlops-demo-application-gitops) - resources that are deployed and managed by the application team.
+- Application GitOps: [mlops-demo-application-gitops](https://github.com/rh-datascience-and-edge-practice/mlops-demo-application-gitops) - resources that are deployed and managed by the application team.
 
 ### Application Repos
 
-- Iris Training Service: [mlops-demo-iris-training-service](https://github.com/rh-intelligent-application-practice/mlops-demo-iris-training-service) - this repo contains source code for training the Iris machine learning model.
+- Iris Training Service: [mlops-demo-iris-training-service](https://github.com/rh-datascience-and-edge-practice/mlops-demo-iris-training-service) - this repo contains source code for training the Iris machine learning model.
 
-- Iris Inference Service: [mlops-demo-iris-inference-service](https://github.com/rh-intelligent-application-practice/mlops-demo-iris-inference-service) - this repo contains source code for deploying the Iris machine learning model using a custom Seldon wrapper.
+- Iris Inference Service: [mlops-demo-iris-inference-service](https://github.com/rh-datascience-and-edge-practice/mlops-demo-iris-inference-service) - this repo contains source code for deploying the Iris machine learning model using a custom Seldon wrapper.
 
 ### Other Repos
 
-- Helm Charts: [rh-intelligent-application-practice/helm-charts](https://github.com/rh-intelligent-application-practice/helm-charts) - this repo is designed to create a space to build, maintain, and version custom helm charts that can be reused by multiple projects. This repo will automatically build and publish charts using GitHub Pages.
+- Helm Charts: [rh-datascience-and-edge-practice/helm-charts](https://github.com/rh-datascience-and-edge-practice/helm-charts) - this repo is designed to create a space to build, maintain, and version custom helm charts that can be reused by multiple projects. This repo will automatically build and publish charts using GitHub Pages.
