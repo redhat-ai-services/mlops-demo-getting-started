@@ -75,7 +75,7 @@ This repository will setup our application teams (tenant) environment, including
 
 ### Step Four: Bootstrap the MLOps Demo Application GitOps Repo
 
-Clone the [mlops-demo-application-gitops](https://github.com/rh-datascience-and-edge-practice/mlops-demo-gitops) repository and run the bootstrap script.
+Clone the [mlops-demo-application-gitops](https://github.com/rh-datascience-and-edge-practice/mlops-demo-application-gitops.git) repository and run the bootstrap script.
 
 ```sh
 ./bootstrap.sh
