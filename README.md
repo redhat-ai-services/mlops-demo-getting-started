@@ -18,7 +18,7 @@ The cluster will be created usually within an hour or so, and you should receive
 
 ### Step Two: Bootstrap the MLOps OpenShift Cluster GitOps Repo
 
-Clone the [openshift-cluster-bootstrap-gitops](https://github.com/rh-datascience-and-edge-practice/cluster-bootstrap-gitops) repository.
+Clone the [openshift-cluster-bootstrap-gitops](https://github.com/rh-datascience-and-edge-practice/openshift-cluster-bootstrap-gitops.git) repository.
 
 Before running the script to start setting up the cluster, you will need a Sealed Secret to unlock existing sealed secrets needed for this demo.
 
